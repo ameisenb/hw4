@@ -1,13 +1,7 @@
 class PlacesController < ApplicationController
 
   def index
-    @user = User.find_by({ "id" => session["user_id"] })
-    if @user != nil
-     @places = Place.all
-    else
-      flash["notice"] = "Login first."
-    end
-    redirect_to "/login"
+    @places = Place.all
   end
 
   def show
@@ -28,7 +22,7 @@ class PlacesController < ApplicationController
     else
       flash["notice"] = "Login first."
     end
-    redirect_to "/places"
+    redirect_to "/login"
   end
 
 end
