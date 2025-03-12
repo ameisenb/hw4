@@ -11,6 +11,11 @@
           <h3><%= entry["title"] %></h3>
           <h4 class="ms-2 mt-2"><%= entry["occurred_on"] %></h4>
           <p class="ms-3 mt-3"><%= entry["description"] %></p>
+          <% if entry.uploaded_image.attached? %>
+            <img src="<%= url_for(entry.uploaded_image) %>" class="img-fluid">
+          <% else %>
+            <img src="<%= entry["image"] %>" class="img-fluid">
+          <% end %>
         </div>
       </div>
     <% end %>
